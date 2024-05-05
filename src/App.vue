@@ -1,16 +1,15 @@
 <template>
   <div class="container-fluid">
-    <PortfolioTemplate1/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import PortfolioTemplate1 from './components/Portfolio/PortfolioTemplate1.vue';
+
 
 export default {
   name: 'App',
   components: {
-    PortfolioTemplate1,
   }
 }
 </script>

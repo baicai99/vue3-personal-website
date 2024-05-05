@@ -36,7 +36,7 @@ export default {
     return {
       cardsData: [
         {
-          imgrul: "/images/portfolio/portfolioinfo10.png",
+          imgrul: "/images/portfolio/portfolioinfo1.png",
           title: "HCK 4月 AIGC",
           count: "114",
           url: "./pages/portfolioinfo10.html",
@@ -124,9 +124,7 @@ export default {
 
 <style scoped>
 @media (hover: hover) and (pointer: fine) {
-  .button:hover {
-    background-color: #0056b3;
-  }
+
 }
 
 a {

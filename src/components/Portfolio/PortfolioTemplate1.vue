@@ -10,17 +10,16 @@
     <img v-for="index in 8" :key="'image-' + index" :src="`/images/portfolioinfo1/${index}.png`" loading="lazy"
       style="width: 100%">
   </div>
-  <indexFooter></indexFooter>
 </template>
   
 <script>
 import WOW from 'wow.js';
 // 导入indexFooter
-import indexFooter from './indexFooter.vue';
+
 export default {
   name: 'PortfolioPage',
   components: {
-    indexFooter,
+    
   },
   mounted() {
     this.initWow();

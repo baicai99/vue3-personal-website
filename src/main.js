@@ -1,7 +1,6 @@
-/* eslint-disable */
-
 import { createApp } from 'vue'
 import App from './App.vue'
+import router from './router';
 
 // 导入 Favicon 图标
 import '../public/images/index/favicon.png';
@@ -25,4 +24,4 @@ import '../public/css/default.css';
 // import '../public/css/style.css';
 // import '../public/css/index.css';
 
-createApp(App).mount('#app')
+createApp(App).use(router).mount('#app');

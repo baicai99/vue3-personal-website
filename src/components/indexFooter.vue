@@ -9,9 +9,7 @@
                         <span class="text-secondary ml-2 mr-2">|</span>
                         <a href="https://beian.mps.gov.cn/#/query/webSearch" style="font-size: 12px;"
                             class="mt-3 text-secondary" target="_blank">粤公网安备44011102483749号</a>
-
                     </div> <!-- footer content -->
-
                 </div>
             </div> <!-- row -->
         </div> <!-- container -->
