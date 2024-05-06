@@ -5,13 +5,33 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('../components/Portfolio.vue')
+    component: () => import('../components/PortfolioFile.vue')
   },
   {
     path: '/about',
     name: 'About',
-    component: () => import('../components/Portfolio/PortfolioTemplate1.vue')
-  }
+    component: () => import('../components/Portfolio/PortfolioTemplateA.vue')
+  },
+  {
+    path: '//portfolio/:id',
+    name: 'Portfolio',
+    component: () => import('../components/Portfolio/PortfolioTemplateA.vue')
+  },
+  {
+    path: '/PortfolioTemplateA',
+    name: 'PortfolioTemplateA',
+    component: () => import('../components/Portfolio/PortfolioTemplateA.vue')
+  },
+  {
+    path: '/PortfolioTemplateB',
+    name: 'PortfolioTemplateB',
+    component: () => import('../components/Portfolio/PortfolioTemplateB.vue')
+  },
+  {
+    path: '/PortfolioTemplateC',
+    name: 'PortfolioTemplateC',
+    component: () => import('../components/Portfolio/PortfolioTemplateC.vue')
+  },
 ];
 
 // 创建 router 实例

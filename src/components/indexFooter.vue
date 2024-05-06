@@ -1,5 +1,5 @@
 <template>
-    <footer id="footer" class="footer_area gray-bg pt-60 pb-60">
+    <footer id="footer" class="footer_area gray-bg pt-60 pb-60 mt-15 container-fluid">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

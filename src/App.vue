@@ -1,15 +1,15 @@
 <template>
-  <div class="container-fluid">
-    <router-view></router-view>
-  </div>
+  <router-view class="container-fluid"></router-view>
+  <indexFooter></indexFooter>
 </template>
 
 <script>
-
+import indexFooter from './components/indexFooter.vue';
 
 export default {
   name: 'App',
   components: {
+    indexFooter,
   }
 }
 </script>

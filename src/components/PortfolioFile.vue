@@ -1,8 +1,10 @@
 <template>
-  <div>
+
+  <div class="container-fluid">
+
+    <!-- 导航栏开始 -->
     <h1 class="pt-4 mb-3 wow fadeInUp" :data-wow-duration="titleWowDuration" :data-wow-delay="titleWowDelay">作品集</h1>
 
-    <!-- 返回主页按钮 -->
     <a class="mb-4 mr-4 btn btn-lg btn-outline-success wow fadeInUp" download :data-wow-duration="button1WowDuration"
       :data-wow-delay="button1WowDelay" :href="downloadUrl" role="button">下载全部（服务器很卡，可能要下载一个小时）</a>
 
@@ -11,90 +13,120 @@
 
     <a class="mb-4 mr-4 btn btn-lg btn-outline-success wow fadeInUp" :data-wow-duration="button3WowDuration"
       :data-wow-delay="button3WowDelay" href="./index.html" role="button">返回主页</a>
+    <!-- 导航栏结束 -->
 
+    <!-- 作品集列表开始 -->
     <div class="row">
-      <!-- 使用v-for循环创建card组件 -->
-      <PortfolioCard v-for="(item, index) in cardsData" :key="index" :item="item" :index="index"></PortfolioCard>
+      <PortfolioCard v-for="(item, index) in cardsData" :key="index" :item="item" :index="index" :title="item.title"
+        @templateChange="handleTemplateSelection">
+      </PortfolioCard>
     </div>
-    <div class="footer w-100 row justify-content-center align-items-center">
-      <a href="https://beian.miit.gov.cn/" class="mb-3 text-center fadeInUp wow" :data-wow-duration="footerWowDuration"
-        :data-wow-delay="footerWowDelay" target="_blank">粤ICP备2024179131号-1</a>
-    </div>
+    <!-- 作品集列表结束 -->
+
   </div>
+
 </template>
 
 <script>
 import PortfolioCard from './Portfolio/PortfolioCard.vue';
+
 import WOW from 'wow.js';
 
 export default {
-  name: 'App',
+  name: 'PortfolioFile',
   components: {
-    PortfolioCard,
+    PortfolioCard, 
+  },
+  methods: {
+    handleTemplateSelection(templateType) {
+      this.currentTemplate = `Template${templateType}`; // 根据传入的templateType更新currentTemplate
+      console.log('Current template set to:', this.currentTemplate); // 打印当前模板，以验证更新
+    },
   },
   data() {
     return {
+      currentTemplate: null, // 初始化currentTemplate
       cardsData: [
         {
-          imgrul: "/images/portfolio/portfolioinfo1.png",
+          id: 10,
+          imgrul: "/images/portfolio/portfolioinfo10.png",
           title: "HCK 4月 AIGC",
           count: "114",
           url: "./pages/portfolioinfo10.html",
+          templateType: 'A'  // 指定使用模板A
         },
         {
+          id: 9,
           imgrul: "/images/portfolio/portfolioinfo9.png",
           title: "HCK 3月 AIGC",
           count: "107",
           url: "./pages/portfolioinfo9.html",
+          templateType: 'B'  // 指定使用模板B
         },
         {
+          id: 8,
           imgrul: "/images/portfolio/portfolioinfo7.png",
           title: "平面设计 大木工包 手机版",
           count: "13",
           url: "./pages/portfolioinfo8.html",
+          templateType: 'C'  // 指定使用模板C
         },
         {
+          id: 7,
           imgrul: "/images/portfolio/portfolioinfo7.png",
           title: "平面设计 大木工包 电脑版",
           count: "20",
           url: "./pages/portfolioinfo7.html",
+          templateType: 'A'  // 指定使用模板A
         },
         {
+          id: 6,
           imgrul: "/images/portfolio/portfolioinfo5.png",
           title: "平面设计 电工包 手机版",
           count: "27",
           url: "./pages/portfolioinfo6.html",
+          templateType: 'B'  // 指定使用模板B
         },
         {
+          id: 5,
           imgrul: "/images/portfolio/portfolioinfo5.png",
           title: "平面设计 电工包 电脑版",
           count: "44",
           url: "./pages/portfolioinfo5.html",
+          templateType: 'C'  // 指定使用模板C
         },
         {
+          id: 4,
           imgrul: "/images/portfolio/portfolioinfo4.png",
           title: "平面设计 亚马逊高级A+ 电脑版",
           count: "2",
           url: "./pages/portfolioinfo4.html",
+          templateType: 'A'  // 指定使用模板A
         },
         {
+          id: 3,
           imgrul: "/images/portfolio/portfolioinfo3.png",
           title: "AIGC 模特换脸",
           count: "7",
           url: "./pages/portfolioinfo3.html",
+          templateType: 'B'  // 指定使用模板B
         },
         {
+          id: 2,
           imgrul: "/images/portfolio/portfolioinfo2.png",
           title: "平面设计 亚马逊高级A+ 手机端",
           count: "43",
           url: "./pages/portfolioinfo2.html",
+          templateType: 'C'  // 指定使用模板C
         },
         {
+          id: 1,
           imgrul: "/images/portfolio/portfolioinfo1.png",
           title: "平面设计 旗舰店设计",
           count: "19",
           url: "./pages/portfolioinfo1.html",
-        },
+          templateType: 'A'  // 指定使用模板A
+        }
       ],
       titleWowDuration: '1.3s',
       titleWowDelay: '0.1s',
@@ -123,9 +155,7 @@ export default {
 </script>
 
 <style scoped>
-@media (hover: hover) and (pointer: fine) {
-
-}
+@media (hover: hover) and (pointer: fine) {}
 
 a {
   text-decoration: none;
@@ -146,6 +176,7 @@ img {
 .footer {
   height: 100px;
 }
+
 .btn-outline-success {
   color: #28a745;
   border-color: #28a745;

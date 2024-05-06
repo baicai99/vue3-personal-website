@@ -9,7 +9,7 @@
         <p class="card-text">{{ item.title }}</p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
-            <a class="btn btn-sm btn-outline-success" :href="item.url">查看</a>
+            <button @click="selectTemplate(item.templateType)" class="btn btn-sm btn-outline-success">查看</button>
           </div>
           <small class="text-muted">查看 {{ item.count }}</small>
         </div>
@@ -17,28 +17,45 @@
     </div>
   </div>
 </template>
-  
+
 <script>
+const templateTypeToRouteName = {
+  'A': 'PortfolioTemplateA',
+  'B': 'PortfolioTemplateB',
+  'C': 'PortfolioTemplateC',
+};
 export default {
+  methods: {
+    // PortfolioCard.vue
+    methods: {
+
+    },
+    selectTemplate(templateType) {
+      const routeName = templateTypeToRouteName[templateType];
+      if (routeName) {
+        this.$router.push({ name: routeName, query: { title: this.item.title } });
+      } else {
+        console.error('Invalid templateType:', templateType);
+      }
+    }
+  },
   props: {
     item: Object,
     index: Number,
+    title: String,
   },
   computed: {
     wowDuration() {
-      // 计算data-wow-duration
       return `${1.3 + this.index * 0.2}s`;
     },
     wowDelay() {
-      // 计算data-wow-delay
       return `${0.2 * this.index}s`;
     },
   },
 };
 </script>
-  
+
 <style scoped>
-/* 这里添加 Card 组件的样式 */
 img {
   width: 100%;
   height: 250px;
@@ -46,4 +63,3 @@ img {
   background-color: #eeeded;
 }
 </style>
-  
