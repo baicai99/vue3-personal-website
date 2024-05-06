@@ -1,5 +1,5 @@
 # 以前写的简历.html，现在转vue3，问题特别多，各种组件冲突。
-# 网页已上线，[点击这里](www.zhengjiyuan.top)查看。
+# 网页已上线，[点击这里](http://www.zhengjiyuan.top)查看。
 
 ## Project setup
 ```
